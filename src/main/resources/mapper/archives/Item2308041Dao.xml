@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.archives.dao.Item2308041Dao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.archives.entity.Item2308041Entity" id="item2308041Map">
+        <result property="tybm" column="TYBM"/>
+        <result property="flow" column="Flow"/>
+        <result property="status" column="Status"/>
+        <result property="path" column="Path"/>
+        <result property="field1" column="Field1"/>
+        <result property="field2" column="Field2"/>
+        <result property="field3" column="Field3"/>
+    </resultMap>
+
+    <select id="notMove" parameterType="Map" resultMap="item2308041Map">
+        SELECT TYBM
+             ,Flow
+             ,Status
+             ,Field1
+             ,Field2
+             ,Field3
+             ,path
+        FROM tab_Item_230804_1
+        WHERE TYBM NOT IN (SELECT tybm FROM move_itemover WHERE tybm IS NOT NULL)
+    </select>
+</mapper>

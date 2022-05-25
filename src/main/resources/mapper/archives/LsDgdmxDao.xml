@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.archives.dao.LsDgdmxDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.archives.entity.LsDgdmxEntity" id="lsDgdmxMap">
+        <result property="id" column="ID"/>
+        <result property="zlmc" column="ZLMC"/>
+        <result property="ymq" column="YMQ"/>
+        <result property="ymz" column="YMZ"/>
+        <result property="dgdywid" column="DGDYWID"/>
+        <result property="source" column="SOURCE"/>
+        <result property="bustype" column="BUSTYPE"/>
+        <result property="modifytime" column="MODIFYTIME"/>
+    </resultMap>
+
+    <insert id="saveEx">
+        INSERT INTO LS_DGDMX  (id, zlmc, ymq, ymz, dgdywid, source, bustype, modifytime )
+        VALUES  (seq_dgdmx.nextval, #{zlmc}, #{ymq}, #{ymz}, #{dgdywid}, #{source}, #{bustype}, #{modifytime} )
+    </insert>
+</mapper>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.archives.dao.LsDgdywCxDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.archives.entity.LsDgdywCxEntity" id="lsDgdywCxMap">
+        <result property="id" column="ID"/>
+        <result property="zch" column="ZCH"/>
+        <result property="qymc" column="QYMC"/>
+        <result property="fddbr" column="FDDBR"/>
+        <result property="qylx" column="QYLX"/>
+        <result property="hy" column="HY"/>
+        <result property="jydz" column="JYDZ"/>
+        <result property="qylxdm" column="QYLXDM"/>
+        <result property="zgjg" column="ZGJG"/>
+        <result property="jcr" column="JCR"/>
+        <result property="jcrq" column="JCRQ"/>
+        <result property="ywsllj" column="YWSLLJ"/>
+        <result property="qylj" column="QYLJ"/>
+        <result property="yxbz" column="YXBZ"/>
+        <result property="ywlx" column="YWLX"/>
+        <result property="hzrq" column="HZRQ"/>
+        <result property="dasl" column="DASL"/>
+        <result property="jh" column="JH"/>
+        <result property="zmldyr" column="ZMLDYR"/>
+        <result property="zmldyrq" column="ZMLDYRQ"/>
+        <result property="zmldyjg" column="ZMLDYJG"/>
+        <result property="sfdy" column="SFDY"/>
+        <result property="djjg" column="DJJG"/>
+        <result property="dalx" column="DALX"/>
+        <result property="qysj" column="QYSJ"/>
+        <result property="jnmldyr" column="JNMLDYR"/>
+        <result property="jnmldyrq" column="JNMLDYRQ"/>
+        <result property="jnmldyjg" column="JNMLDYJG"/>
+        <result property="qyjg" column="QYJG"/>
+        <result property="archid" column="ARCHID"/>
+        <result property="ysmys" column="YSMYS"/>
+        <result property="bz" column="BZ"/>
+        <result property="smjzt" column="SMJZT"/>
+        <result property="smjh" column="SMJH"/>
+        <result property="zihao" column="ZIHAO"/>
+        <result property="ywmc" column="YWMC"/>
+        <result property="ywslmc" column="YWSLMC"/>
+        <result property="ywid" column="YWID"/>
+        <result property="marprid" column="MARPRID"/>
+        <result property="bgflx" column="BGFLX"/>
+        <result property="bgnr" column="BGNR"/>
+        <result property="daxh" column="DAXH"/>
+        <result property="uniscid" column="UNISCID"/>
+        <result property="reelcode" column="REELCODE"/>
+        <result property="reelorder" column="REELORDER"/>
+        <result property="organcode" column="ORGANCODE"/>
+        <result property="modifytime" column="MODIFYTIME"/>
+    </resultMap>
+
+    <select id="generatedKey" resultType="Long" useCache="false" flushCache="true">
+        select seq_topeam.nextval as id from dual
+    </select>
+
+    <insert id="insertByDgdyw" useGeneratedKeys="false" >
+        INSERT INTO LS_DGDYW_CX(
+        ID, ZCH, QYMC, FDDBR, QYLX, HY, JYDZ, QYLXDM, ZGJG, JCR, JCRQ, YWSLLJ, QYLJ, YXBZ, YWLX, HZRQ,
+        DASL, JH, ZMLDYR, ZMLDYRQ, ZMLDYJG, SFDY, DJJG, DALX, QYSJ, JNMLDYR, JNMLDYRQ, JNMLDYJG, QYJG,
+        ARCHID, YSMYS, BZ, SMJZT, SMJH, ZIHAO, YWMC, YWSLMC, YWID, MARPRID, BGFLX, BGNR, DAXH, UNISCID,
+        REELCODE, REELORDER, ORGANCODE, MODIFYTIME)
+        SELECT ID, ZCH, QYMC, FDDBR, QYLX, HY, JYDZ, QYLXDM, ZGJG, JCR, JCRQ, YWSLLJ, QYLJ, YXBZ, YWLX, HZRQ,
+               DASL, JH, ZMLDYR, ZMLDYRQ, ZMLDYJG, SFDY, DJJG, DALX, QYSJ, JNMLDYR, JNMLDYRQ, JNMLDYJG, QYJG,
+               ARCHID, YSMYS, BZ, SMJZT, SMJH, ZIHAO, YWMC, YWSLMC, YWID, MARPRID, BGFLX, BGNR, DAXH, UNISCID,
+               REELCODE, REELORDER, ORGANCODE, MODIFYTIME
+        FROM LS_DGDYW
+        WHERE ID=#{id}
+    </insert>
+</mapper>

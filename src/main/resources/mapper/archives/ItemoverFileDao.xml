@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.archives.dao.ItemoverFileDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.archives.entity.ItemoverFileEntity" id="itemoverFileMap">
+        <result property="tybm" column="tybm"/>
+        <result property="state" column="state"/>
+    </resultMap>
+
+    <insert id="saveEx">
+        INSERT INTO move_itemoverfile  (tybm, state)
+        VALUES  (#{tybm}, #{state} )
+    </insert>
+
+    <select id="selectByTybm" parameterType="Map" resultMap="itemoverFileMap">
+        SELECT tybm, state FROM move_itemoverfile WHERE tybm=#{tybm}
+    </select>
+</mapper>

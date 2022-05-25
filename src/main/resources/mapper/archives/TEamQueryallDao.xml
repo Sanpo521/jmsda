@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.archives.dao.TEamQueryallDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="io.renren.modules.archives.entity.TEamQueryallEntity" id="tEamQueryallMap">
+        <result property="zch" column="ZCH"/>
+        <result property="qymc" column="QYMC"/>
+        <result property="fddbr" column="FDDBR"/>
+        <result property="marprid" column="MARPRID"/>
+        <result property="orgid" column="ORGID"/>
+    </resultMap>
+
+    <insert id="saveEx">
+        INSERT INTO T_EAM_QUERYALL  (zch, qymc, fddbr, marprid, orgid )
+        VALUES  (#{zch}, #{qymc}, #{fddbr}, #{marprid}, #{orgid} )
+    </insert>
+
+    <delete id="delEx">
+        DELETE FROM T_EAM_QUERYALL WHERE marprid=#{marprid}
+    </delete>
+</mapper>

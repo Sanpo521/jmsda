@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.renren.modules.archives.dao.MarpripInfoDao">
+    <select id="getEntInfoByEntname" parameterType="Map" resultType="io.renren.modules.archives.entity.MarpripInfoEntity">
+        SELECT * FROM (
+        select to_char(b.id) as marprid,b.entname,b.regno,b.lerep,b.dom,b.enttra,b.uniscid,b.apprdate,
+               (select min(qylxdm) from code_eam_enttypemapped t where t.enttypecode=b.enttype) as enttype,
+               (select name from code_enttypecode etc where etc.code=b.enttype) as enttypename,
+               (select name from code_enttypecode etc where etc.code=b.enttypeitem) as enttypeitemname,
+               (select hy_mc from dm_hygb where hy_dm=b.industryco) as industryconame,
+               (select mc from dm_qyzt where dm=b.state) as statename,
+               (case when b.superorgid is not null then b.superorgid else b.orgid end) as zgjg,b.orgid as djjg,
+               (select nvl(max(smjh),0) from ls_dgdyw yw where yw.marprid=b.id) as smjh
+        from reg_marpripinfo b
+        where entname=#{entName}
+        )  WHERE ROWNUM &lt; 2
+    </select>
+
+    <select id="getEntInfoByRegno" parameterType="Map" resultType="io.renren.modules.archives.entity.MarpripInfoEntity">
+        SELECT * FROM (
+        select to_char(b.id) as marprid,b.entname,b.regno,b.lerep,b.dom,b.enttra,b.uniscid,b.apprdate,
+               (select min(qylxdm) from code_eam_enttypemapped t where t.enttypecode=b.enttype) as enttype,
+               (select name from code_enttypecode etc where etc.code=b.enttype) as enttypename,
+               (select name from code_enttypecode etc where etc.code=b.enttypeitem) as enttypeitemname,
+               (select hy_mc from dm_hygb where hy_dm=b.industryco) as industryconame,
+               (select mc from dm_qyzt where dm=b.state) as statename,
+               (case when b.superorgid is not null then b.superorgid else b.orgid end) as zgjg,b.orgid as djjg,
+               (select nvl(max(smjh),0) from ls_dgdyw yw where yw.marprid=b.id) as smjh
+        from reg_marpripinfo b
+        where regno=#{regNo}
+        )  WHERE ROWNUM &lt; 2
+    </select>
+
+</mapper>
